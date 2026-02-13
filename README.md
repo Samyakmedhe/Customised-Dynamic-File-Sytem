@@ -1,72 +1,108 @@
-# 🚀 Customised Dynamic File System (CVFS)
+# 🚀 Customised Virtual File System (CVFS)
 
-A **Customised Virtual File System (CVFS)** implemented in **C++** that simulates core file system operations in memory.  
-This project demonstrates how real operating systems internally manage files using inodes, file tables, and file descriptors.
+A fully functional **Customised Virtual File System (CVFS)** implemented in **C++**, designed to simulate core file system operations in memory.
 
-It is designed for **system programming practice**, **operating system concepts**, and **academic learning purposes**.
+This project mimics how an operating system internally manages files using:
 
----
+- Super Block
+- Inode List (DILB)
+- File Table
+- User File Descriptor Table (UFDT)
 
-## 📌 Project Objective
-
-The objective of this project is to:
-
-- Simulate a file system architecture
-- Implement core file operations
-- Manage files dynamically in memory
-- Understand inode and file descriptor mechanisms
-- Strengthen system-level programming concepts in C++
+It provides a command-line interface to perform file operations similar to real operating systems.
 
 ---
 
-## 🛠️ Technologies Used
+## 📌 Project Overview
+
+The Customised Virtual File System (CVFS) is an in-memory file system that supports creation, deletion, reading, writing, and management of files using inode-based architecture.
+
+It is built to understand:
+
+- File system internal architecture
+- Inode management
+- File descriptor handling
+- Memory management
+- System-level programming concepts
+
+---
+
+## 🛠️ Technology Stack
 
 - **Language:** C++
-- **Core Concepts:**
-  - File System Architecture
-  - Inode Structure
-  - Super Block Management
-  - File Descriptor Table
-  - Dynamic Memory Allocation
-  - Command Line Interface Design
+- **Libraries Used:**
+  - `stdio.h`
+  - `stdlib.h`
+  - `string.h`
+  - `unistd.h`
+  - `iostream`
+
+---
+
+## 🏗️ System Architecture
+
+The system consists of the following components:
+
+### 🔹 Super Block
+Stores:
+- Total number of inodes
+- Free inode count
+
+### 🔹 DILB (Dynamically Inode Linked List)
+- Linked list of inodes
+- Each inode stores file metadata
+
+### 🔹 Inode Structure
+Each file contains:
+
+- File Name
+- Inode Number
+- File Size
+- Actual File Size
+- File Type
+- Buffer (Data Storage)
+- Link Count
+- Reference Count
+- Permission
+
+### 🔹 File Table
+Maintains:
+- Read Offset
+- Write Offset
+- Mode
+- Inode Pointer
+
+### 🔹 UFDT (User File Descriptor Table)
+- Stores active file descriptors
+- Connects file descriptor to file table
 
 ---
 
 ## ⚙️ Features
 
-The Customised Dynamic File System supports:
+The system supports:
 
-- 📁 Create File  
-- ❌ Delete File  
-- ✏️ Write File  
-- 📖 Read File  
-- 🔓 Open File  
-- 🔒 Close File  
-- 📋 List All Files (`ls`)  
-- 📊 Display File Information (`stat`, `fstat`)  
-- 🔄 Truncate File  
-- 🧠 In-Memory Inode Management  
-
----
-
-## 🏗️ Internal Architecture
-
-The system internally maintains the following components:
-
-- **Super Block**
-- **Inode Table**
-- **File Table**
-- **User File Descriptor Table (UFDT)**
-
-Each file contains metadata such as:
-
-- File Name  
-- File Size  
-- File Type  
-- Link Count  
-- Reference Count  
-- File Permissions  
-- File Data Buffer  
+- 📁 `create` – Create new file  
+- 📂 `open` – Open existing file  
+- ❌ `rm` – Delete file  
+- 📖 `read` – Read file content  
+- ✏️ `write` – Write into file  
+- 📋 `ls` – List all files  
+- 📊 `stat` – Display file info using name  
+- 📊 `fstat` – Display file info using file descriptor  
+- 🔄 `lseek` – Change file offset  
+- 🔒 `close` – Close file  
+- 🔒 `closeall` – Close all files  
+- ✂️ `truncate` – Remove file data  
+- 📘 `man` – Command manual  
+- ❓ `help` – Display all commands  
 
 ---
 
+## 📂 Project Structure
+
+Customised-Dynamic-File-System/
+│
+├── CVFS.cpp # Complete Virtual File System implementation
+├── CVFS   # it have cpp file of build process of this project 
+└── README.md # Documentation
