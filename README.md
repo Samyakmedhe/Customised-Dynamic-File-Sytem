@@ -101,8 +101,5 @@ The system supports:
 
 ## 📂 Project Structure
 
-Customised-Dynamic-File-System/
-│
-├── CVFS.cpp # Complete Virtual File System implementation
-├── CVFS   # it have cpp file of build process of this project 
-└── README.md # Documentation
+Customised-Dynamic-File-System/ → CVFS.cpp | CVFS (Executable) | README.md
+---
